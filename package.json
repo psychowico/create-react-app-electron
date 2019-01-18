@@ -14,15 +14,16 @@
     "typescript": "3.2.2"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
   },
   "scripts": {
     "start": "BROWSER=none NODE_PATH=./src react-scripts start",
     "start-electron": "concurrently --kill-others --kill-others-on-fail \"npm:_watch-dev-electron\" \"npm:_start-dev-electron\"",
     "build": "NODE_PATH=./src react-scripts build",
     "test": "NODE_PATH=./src react-scripts test",
-    "_watch-dev-electron": "tsc src/electron-starter.ts  --outDir build/electron --watch",
-    "_start-dev-electron": "nodemon --watch ./build/electron/**/* -C --exec 'electron ./build/electron/electron-starter.js'",
+    "_watch-dev-electron": "tsc src/electron/main.ts  --outDir build/electron --watch",
+    "_start-dev-electron": "nodemon --watch ./build/electron/**/* -C --exec 'electron ./build/electron/main.js'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
