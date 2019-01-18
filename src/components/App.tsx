@@ -4,21 +4,21 @@ import Test from './Test';
 import { ipcRenderer } from '../electron-bridge';
 
 class App extends Component<{}, { number: number }> {
-    render() {
+    public render() {
         return (
-            <div className="App">
+            <div className="app">
                 <button onClick={() => ipcRenderer.send('test', 'show me')}>
                     {' '}
                     Test me{' '}
                 </button>
-                <header className="App-header">
-                    <img src={''} className="App-logo" alt="logo" />
+                <header className="app__header">
+                    <img src={''} className="app__logo" alt="logo" />
                     <p>
                         Edit <code>src/App.tsx</code> and save to reload.
                     </p>
                     <Test />
                     <a
-                        className="App-link"
+                        className="App__link"
                         href="https://reactjs.org"
                         target="_blank"
                         rel="noopener noreferrer"

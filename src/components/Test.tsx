@@ -1,19 +1,19 @@
 import React from 'react';
 
-export default class Test extends React.PureComponent<{}, { number: number }> {
-    state = { number: 1 };
+export default class Test extends React.PureComponent<{}, { value: number }> {
+    public state = { value: 1 };
 
     public render() {
         return (
             <span>
                 <button
                     onClick={() =>
-                        this.setState(({ number }) => ({ number: number + 1 }))
+                        this.setState(({ value }) => ({ value: value + 1 }))
                     }
                 >
                     X
                 </button>
-                testme {this.state.number}
+                testme {this.state.value}
             </span>
         );
     }

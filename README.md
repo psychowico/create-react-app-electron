@@ -63,6 +63,19 @@ It's not ready yet for the production usage with electron.
 
 See the section  in create-react-app docs about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Linting
+We use `tslint` to lint the code, it would be useful if you install it in your IDE.
+For scss linting we use `sass-lint` package. If you IDE support it, please install it,
+it will help you to make cleaner SCSS faster.
+
+Do general tests before pushing your code call this command:
+
+`yarn check-code`
+
+This will perform scss linting, typescript linting and unit tests.
+
+If you won't, the CI will do it for you and you won't be able to merge you PR.
+
 ## `require('electron')` in renderer process 
 
 If you need access `electron` lib in renderer process for whatever reason, use `./src/electron-bridge.ts` module.
