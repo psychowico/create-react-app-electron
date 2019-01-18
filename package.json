@@ -14,8 +14,7 @@
     "typescript": "3.2.2"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "electron-connect": "^0.6.3"
+    "concurrently": "^4.1.0"
   },
   "scripts": {
     "start": "BROWSER=none NODE_PATH=./src react-scripts start",
