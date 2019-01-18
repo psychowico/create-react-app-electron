@@ -9,5 +9,11 @@ type Electron = typeof electronDefault;
 
 const electron = (window as any).__electron as Electron;
 
+if (electron === undefined) {
+    console.warn(
+        'The app is designed to run inside Electron environment. Please check the README.md file.'
+    );
+}
+
 // we only exporting components necessery in renderer process
 export const { ipcRenderer } = electron;
