@@ -1,5 +1,29 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Run instructions
+
+You have two ways to run the app. First is direct on your host system.
+Just follow the commands below to do this.
+
+Second one is to use docker. It's preffered way, because there is no certainty
+that your host system will have proper version of `node.js` and other dependencies
+(Electron depends on many libs that are hosted on dev machine).
+If you want to use docker way, please make sure you have newest docker installed
+(tested on `18.09.1-ce`).
+Then, follow the command in next steps, but prefix all of them by this:
+```bash
+docker-compose run --rm web ...
+```
+
+E.g.
+```
+docker-compose run --rm web yarn
+docker-compose run --rm web yarn start
+docker-compose run --rm web yarn start-electron
+```
+
+To avoid repetition of `docker-compose run --rm ` I advice to use system alias, e.g. `dcrun` that cover this prefix.
+
 ## Install dependencies
 
 To install dependencies just call yarn: `yarn`
