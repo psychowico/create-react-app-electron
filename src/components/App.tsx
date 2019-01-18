@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import Test from './Test';
 import { ipcRenderer } from '../electron-bridge';
 
