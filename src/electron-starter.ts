@@ -10,7 +10,9 @@ function createMainWindow() {
     height: 600,
     // if we want use ipcRenderer and general communication, we need to
     // intergrate window with node
-    webPreferences: { nodeIntegration: true }
+    webPreferences: { nodeIntegration: true },
+    // hide redundant menu in dev mode, press alt to show.
+    autoHideMenuBar: true,
   });
 }
 
@@ -20,7 +22,7 @@ function bootstrapAppWindow() {
   mainWindow.loadURL('http://localhost:3000');
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => (mainWindow = null));
