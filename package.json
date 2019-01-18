@@ -23,7 +23,8 @@
     "start-electron": "concurrently --kill-others --kill-others-on-fail \"npm:_watch-dev-electron\" \"npm:_start-dev-electron\"",
     "build": "NODE_PATH=./src react-scripts build",
     "test": "NODE_PATH=./src react-scripts test",
-    "_watch-dev-electron": "tsc src/electron/main.ts  --outDir build/electron --watch",
+    "check-code": "yarn test && prettier -l",
+    "_watch-dev-electron": "tsc src/electron/main.ts src/electron/preload.ts  --outDir build/electron --watch",
     "_start-dev-electron": "nodemon --watch ./build/electron/**/* -C --exec 'electron ./build/electron/main.js'",
     "eject": "react-scripts eject"
   },

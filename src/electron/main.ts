@@ -1,4 +1,5 @@
 import { app, BrowserWindow, ipcMain, dialog, Event } from 'electron';
+import { join } from 'path';
 
 // keep a global reference of the window object to prevent garbage collecting it
 let mainWindow: BrowserWindow | null = null;
@@ -10,7 +11,10 @@ function createMainWindow() {
         height: 600,
         // if we want use ipcRenderer and general communication, we need to
         // intergrate window with node
-        webPreferences: { nodeIntegration: true },
+        webPreferences: {
+            nodeIntegration: false,
+            preload: join(__dirname, 'preload.js'),
+         },
         // hide redundant menu in dev mode, press alt to show.
         autoHideMenuBar: true,
     });
@@ -22,7 +26,7 @@ function bootstrapAppWindow() {
     mainWindow.loadURL('http://localhost:3000');
 
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => (mainWindow = null));

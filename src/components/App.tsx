@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import { IpcRenderer } from 'electron';
 import Test from './Test';
-
-declare global {
-    interface Window {
-        require: (
-            module: 'electron'
-        ) => {
-            ipcRenderer: IpcRenderer;
-        };
-    }
-}
-
-const { ipcRenderer } = window.require('electron');
+import { ipcRenderer } from '../electron-bridge';
 
 class App extends Component<{}, { number: number }> {
     render() {

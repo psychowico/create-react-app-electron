@@ -63,6 +63,11 @@ It's not ready yet for the production usage with electron.
 
 See the section  in create-react-app docs about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## `require('electron')` in renderer process 
+
+If you need access `electron` lib in renderer process for whatever reason, use `./src/electron-bridge.ts` module.
+Check the file comment for explanation why we do this.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
