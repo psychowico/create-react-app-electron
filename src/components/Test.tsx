@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-export default class Test extends React.PureComponent<{}, {number: number}> {
-    state = {number: 1};
+export default class Test extends React.PureComponent<{}, { number: number }> {
+    state = { number: 1 };
 
     public render() {
         return (
