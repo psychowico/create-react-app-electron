@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { IpcRenderer } from 'electron';
+import Test from './Test';
 
 declare global {
   interface Window {
@@ -13,7 +14,7 @@ declare global {
 
 const { ipcRenderer } = window.require('electron');
 
-class App extends Component {
+class App extends Component<{}, {number: number}> {
   render() {
     return (
       <div className="App">
@@ -23,6 +24,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
+          <Test />
           <a
             className="App-link"
             href="https://reactjs.org"
