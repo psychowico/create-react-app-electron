@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, dialog, Event } from 'electron';
+import { app, BrowserWindow, ipcMain, dialog, Event, IpcMain } from 'electron';
 import { join } from 'path';
 
 // keep a global reference of the window object to prevent garbage collecting it
@@ -17,6 +17,7 @@ function createMainWindow() {
         },
         // hide redundant menu in dev mode, press alt to show.
         autoHideMenuBar: true,
+        show: false,
     });
 }
 
@@ -26,7 +27,7 @@ function bootstrapAppWindow() {
     mainWindow.loadURL('http://localhost:3000');
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => (mainWindow = null));
@@ -47,6 +48,14 @@ app.on('activate', function onActivate() {
     // dock icon is clicked and there are no other windows open.
     if (mainWindow === null) {
         bootstrapAppWindow();
+    }
+});
+
+ipcMain.on('main-window-ready', function onMainWindowReady() {
+    // do not show windows before react is ready
+    if (mainWindow) {
+        mainWindow.show();
+        mainWindow.focus();
     }
 });
 

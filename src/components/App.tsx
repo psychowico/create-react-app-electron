@@ -4,6 +4,10 @@ import Test from './Test';
 import { ipcRenderer } from '../electron-bridge';
 
 class App extends Component<{}, { number: number }> {
+    public componentDidMount() {
+        ipcRenderer.send('main-window-ready');
+    }
+
     public render() {
         return (
             <div className="app">
